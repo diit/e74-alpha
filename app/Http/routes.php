@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
+    Route::get('/', 'Dashboard@show');
+    Route::resource('profile', 'ProfileController');
+    Route::get('admin', 'Dashboard@admin');
+});
