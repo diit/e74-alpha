@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-<form method="POST" action="/auth/register">
+<form method="POST" action="/register">
     {!! csrf_field() !!}
 
     <div>
