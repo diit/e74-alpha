@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
-    Route::get('/', 'Dashboard@show');
+    Route::get('/', 'DashboardController@show');
     Route::resource('profile', 'ProfileController');
-    Route::get('admin', 'Dashboard@admin');
+    Route::get('admin', 'DashboardController@admin');
 });
