@@ -1,0 +1,85 @@
+/*------------------------------------------------------------------
+  [Master Stylesheet]
+  Project:	Alpha
+  Version:	0.0.1
+
+  [Libraries Used]
+  - TODO:FILL
+
+  [Table of contents]
+  1. Settings:
+    Global variables, site-wide settings, config switches, etc.
+  2. Tools:
+    Site-wide mixins and functions.
+  3. Generic:
+    Low-specificity, far-reaching rulesets (e.g. resets).
+  4. Base:
+    Unclassed HTML elements (e.g. a {}, blockquote {}, address {}).
+
+  [BEM OBJECTS]
+    5. Atoms:
+      An Atom is a consistently reused style that is never used solely on
+      its own.
+    6. Molecules:
+      Once you recognize which DOM elements are atoms you will see what
+      molecules are. Any conceptual block/component is a molecule.
+
+  7. Trumps:
+    High-specificity, very explicit selectors. Overrides and helper classes
+    (e.g. .hidden {}).
+-------------------------------------------------------------------*/
+
+
+/*===================================================================
+
+  1. Settings
+
+  =================================================================*/
+
+
+/*===================================================================
+
+  2. Tools
+
+  =================================================================*/
+
+  @import '../bower_resources/bluejay/bluejay';
+  @import '../bower_resources/bootstrap/dist/css/bootstrap.css';
+  @import '../bower_resources/bootstrap-material-design/dist/css/bootstrap-material-design.css';
+  @import '../bower_resources/bootstrap-material-design/dist/css/ripples.css';
+
+/*===================================================================
+
+  3. Generic
+
+  ==================================================================*/
+
+
+
+/*===================================================================
+
+  4. Base
+
+  =================================================================*/
+
+
+/*===================================================================
+
+  6. Atoms
+
+  =================================================================*/
+
+
+/*===================================================================
+
+  7. Molecules
+
+  =================================================================*/
+
+  @import 'molecule/login';
+
+/*===================================================================
+
+  8. Trumps
+
+  =================================================================*/

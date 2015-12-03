@@ -1,5 +1,6 @@
 @extends('layouts.main')
 
+@section('content')
 <form method="POST" action="/register">
     {!! csrf_field() !!}
 
@@ -27,3 +28,4 @@
         <button type="submit">Register</button>
     </div>
 </form>
+@endsection

@@ -26,7 +26,8 @@ Route::post('register', 'Auth\AuthController@postRegister');
 
 // Dashboard
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
-    Route::get('/', 'DashboardController@show');
+    Route::get('/', 'DashboardController@index');
+    Route::get('setup', 'DashboardController@setup');
     Route::get('admin', 'DashboardController@admin');
 });
 

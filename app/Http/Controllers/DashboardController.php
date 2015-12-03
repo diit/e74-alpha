@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class DashboardController extends Controller
 {
@@ -16,6 +17,16 @@ class DashboardController extends Controller
    */
   public function index()
   {
-      return view('dashboard.index');
+      return view('dashboard.index', ['user' => Auth::user()]);
+  }
+
+  /**
+   * Display the dashboard onboarding page
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function setup()
+  {
+      return view('dashboard.setup', ['user' => Auth::user()]);
   }
 }

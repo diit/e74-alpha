@@ -1,0 +1,23 @@
+{
+  "name": "Alpha",
+  "description": "Demo project for engine 74",
+  "main": "",
+  "authors": [
+    "Dale Inverarity <dale@diit.ca>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "http://dale.wtf",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-material-design": "~0.5.1",
+    "bluejay": "diit/bluejay"
+  }
+}
