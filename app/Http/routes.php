@@ -15,8 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Authentication routes...
+Route::get('login', 'Auth\AuthController@getLogin');
+Route::post('login', 'Auth\AuthController@postLogin');
+Route::get('logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+Route::get('register', 'Auth\AuthController@getRegister');
+Route::post('register', 'Auth\AuthController@postRegister');
+
+// Dashboard
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     Route::get('/', 'DashboardController@show');
-    Route::resource('profile', 'ProfileController');
     Route::get('admin', 'DashboardController@admin');
 });
+
+// Profile
+Route::resource('profile', 'ProfileController');
