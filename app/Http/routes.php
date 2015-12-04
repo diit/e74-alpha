@@ -25,9 +25,8 @@ Route::get('register', 'Auth\AuthController@getRegister');
 Route::post('register', 'Auth\AuthController@postRegister');
 
 // Dashboard
-Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'profile.setup']], function () {
-    Route::get('/', 'DashboardController@index');
-    Route::get('admin', 'DashboardController@admin');
+Route::group(['middleware' => ['auth', 'profile.setup']], function () {
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 });
 
 // Profiles

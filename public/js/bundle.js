@@ -96,7 +96,7 @@
 	        data: fields,
 	        dataType: 'json',
 	        success: function(data) {
-	          // Redirect
+	          window.location.replace("/dashboard");
 	        },
 	        error: function(data) {
 	          console.log(data.responseJSON);

@@ -26,6 +26,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         parent::registerPolicies($gate);
 
-        //
+        $gate->define('admin', function ($user) {
+            // First user in system acts as admin, theoretically create during
+            // somekind of install step for a hosted solution or precreated otherwise
+            return $user->id === 1;
+        });
     }
 }

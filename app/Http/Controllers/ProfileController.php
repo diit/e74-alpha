@@ -9,9 +9,15 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Profile;
 use App\Attribute;
+use Gate;
 
 class ProfileController extends Controller
 {
+    function __construct()
+    {
+      $this->middleware('profile.setup', ['only' => ['create', 'store']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +25,11 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
+      if (Gate::denies('admin')) {
+          abort(403);
+      }
+      $profiles = Profile::all();
+      return view('profiles.index', ['profiles' => $profiles]);
     }
 
     /**
@@ -80,7 +90,11 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        //
+      if (Gate::denies('admin')) {
+          abort(403);
+      }
+      $profile = Profile::find($id);
+      return view('profiles.show', ['profile' => $profile]);
     }
 
     /**
@@ -91,7 +105,11 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        //
+      if (Gate::denies('admin')) {
+          abort(403);
+      }
+      $profile = Profile::find($id);
+      return view('profiles.edit', ['profile' => $profile]);
     }
 
     /**
@@ -103,7 +121,10 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      if (Gate::denies('admin')) {
+          abort(403);
+      }
+      //TODO
     }
 
     /**
@@ -114,6 +135,9 @@ class ProfileController extends Controller
      */
     public function destroy($id)
     {
-        //
+      if (Gate::denies('admin')) {
+          abort(403);
+      }
+      //TODO
     }
 }
