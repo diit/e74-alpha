@@ -16,7 +16,7 @@ class ProfileComplete
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->profile())
+        if (Auth::user()->profile)
         {
            return redirect()->route('dashboard');
         }
