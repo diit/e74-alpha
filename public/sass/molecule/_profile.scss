@@ -11,4 +11,14 @@
     border: dotted 4px #C1C1C1;
     padding: 20px;
   }
+
+  @include element(listing) {
+    margin: -19px;
+    margin-top: 19px;
+  }
+  
+  @include element(listing-item) {
+    border: 1px solid #ddd !important; //Themes can be a real pain
+    padding: 10px 15px !important; //Themes can be a real pain
+  }
 }

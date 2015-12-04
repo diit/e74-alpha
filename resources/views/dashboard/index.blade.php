@@ -15,8 +15,16 @@
     <div class="col-sm-6">
       <h2>Skills</h2>
       @foreach ($user->profile->attributes as $skill)
-        <h4>{{ $skill->name }}</h4>
-        <p>-- {{ $skill->content }}</p>
+        <div class="col-sm-4">
+          <div class="profile__skill panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{ $skill->name }}</h3>
+            </div>
+            <div class="panel-body">
+              {{ $skill->content }}
+            </div>
+          </div>
+        </div>
       @endforeach
     </div>
   </div>
