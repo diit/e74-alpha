@@ -15,7 +15,7 @@ class ProfileController extends Controller
 {
     function __construct()
     {
-      $this->middleware('profile.setup', ['only' => ['create', 'store']]);
+      $this->middleware('profile.complete', ['only' => ['create']]);
     }
 
     /**
@@ -124,7 +124,36 @@ class ProfileController extends Controller
       if (Gate::denies('admin')) {
           abort(403);
       }
-      //TODO
+      $this->validate($request, [
+        'profile.pitch'     => 'required',
+        'profile.position'  => 'required',
+        'profile.gender'    => 'required',
+        'profile.website'   => 'required',
+        'profile.city'      => 'required',
+        'profile.country'   => 'required'
+      ]);
+
+      $profile = Profile::create([
+          'pitch'     => $request->profile['pitch'],
+          'position'  => $request->profile['position'],
+          'gender'    => $request->profile['gender'],
+          'website'   => $request->profile['website'],
+          'city'      => $request->profile['city'],
+          'country'   => $request->profile['country'],
+          'user_id'   => Auth::user()->id,
+      ]);
+
+      foreach ($request->skills as $skill) {
+        $profile->attributes()->save(
+          Attribute::create([
+            'name'        => $skill['name'],
+            'content'     => $skill['content'],
+            'profile_id'  => $profile->id,
+          ])
+        );
+      }
+
+      return $profile;
     }
 
     /**
@@ -138,6 +167,7 @@ class ProfileController extends Controller
       if (Gate::denies('admin')) {
           abort(403);
       }
-      //TODO
+      Profile::findOrFail($id)->delete();
+      return redirect('/profile');
     }
 }
