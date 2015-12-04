@@ -1,5 +1,7 @@
 ## Project: e74-alpha
 
+![Screenshot](http://i.imgur.com/isa5QtD.png)
+
 A thing that does things. Oh! the things this thing can do.
 
 (Demo Project)
