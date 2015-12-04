@@ -1,9 +1,9 @@
-var Vue = require('vue');
-var vueValidator = require('vue-validator');
-var vueResource = require('vue-resource');
-
-Vue.use(vueValidator);
-Vue.use(vueResource);
+// var Vue = require('vue');
+// var vueValidator = require('vue-validator');
+// var vueResource = require('vue-resource');
+//
+// Vue.use(vueValidator);
+// Vue.use(vueResource);
 
 new Vue({
   el: '#v-app',
@@ -59,5 +59,9 @@ new Vue({
       });
       this.errors.push(result);
     }
+  },
+
+  ready: function() {
+    
   }
 })

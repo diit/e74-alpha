@@ -105,11 +105,11 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-      if (Gate::denies('admin')) {
-          abort(403);
-      }
-      $profile = Profile::find($id);
-      return view('profiles.edit', ['profile' => $profile]);
+      // if (Gate::denies('admin')) {
+      //     abort(403);
+      // }
+      // $profile = Profile::find($id);
+      // return view('profiles.edit', ['profile' => $profile]);
     }
 
     /**
@@ -121,39 +121,39 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-      if (Gate::denies('admin')) {
-          abort(403);
-      }
-      $this->validate($request, [
-        'profile.pitch'     => 'required',
-        'profile.position'  => 'required',
-        'profile.gender'    => 'required',
-        'profile.website'   => 'required',
-        'profile.city'      => 'required',
-        'profile.country'   => 'required'
-      ]);
-
-      $profile = Profile::create([
-          'pitch'     => $request->profile['pitch'],
-          'position'  => $request->profile['position'],
-          'gender'    => $request->profile['gender'],
-          'website'   => $request->profile['website'],
-          'city'      => $request->profile['city'],
-          'country'   => $request->profile['country'],
-          'user_id'   => Auth::user()->id,
-      ]);
-
-      foreach ($request->skills as $skill) {
-        $profile->attributes()->save(
-          Attribute::create([
-            'name'        => $skill['name'],
-            'content'     => $skill['content'],
-            'profile_id'  => $profile->id,
-          ])
-        );
-      }
-
-      return $profile;
+      // if (Gate::denies('admin')) {
+      //     abort(403);
+      // }
+      // $this->validate($request, [
+      //   'profile.pitch'     => 'required',
+      //   'profile.position'  => 'required',
+      //   'profile.gender'    => 'required',
+      //   'profile.website'   => 'required',
+      //   'profile.city'      => 'required',
+      //   'profile.country'   => 'required'
+      // ]);
+      //
+      // $profile = Profile::create([
+      //     'pitch'     => $request->profile['pitch'],
+      //     'position'  => $request->profile['position'],
+      //     'gender'    => $request->profile['gender'],
+      //     'website'   => $request->profile['website'],
+      //     'city'      => $request->profile['city'],
+      //     'country'   => $request->profile['country'],
+      //     'user_id'   => Auth::user()->id,
+      // ]);
+      //
+      // foreach ($request->skills as $skill) {
+      //   $profile->attributes()->save(
+      //     Attribute::create([
+      //       'name'        => $skill['name'],
+      //       'content'     => $skill['content'],
+      //       'profile_id'  => $profile->id,
+      //     ])
+      //   );
+      // }
+      //
+      // return $profile;
     }
 
     /**
