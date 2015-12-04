@@ -18,6 +18,7 @@
   ],
   "dependencies": {
     "bootstrap-material-design": "~0.5.1",
-    "bluejay": "diit/bluejay"
+    "bluejay": "diit/bluejay",
+    "vue": "~1.0.10"
   }
 }

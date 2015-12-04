@@ -19,14 +19,4 @@ class DashboardController extends Controller
   {
       return view('dashboard.index', ['user' => Auth::user()]);
   }
-
-  /**
-   * Display the dashboard onboarding page
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function setup()
-  {
-      return view('dashboard.setup', ['user' => Auth::user()]);
-  }
 }

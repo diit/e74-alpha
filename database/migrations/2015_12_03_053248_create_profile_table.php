@@ -13,6 +13,7 @@ class CreateProfileTable extends Migration
     public function up()
     {
         Schema::create('profiles', function (Blueprint $table) {
+            $table->increments('id');
             $table->text('pitch');
             $table->string('position');
             $table->string('gender');

@@ -1,8 +1,8 @@
 .login {
-  margin-top: 30%;
+  margin-top: 20%;
 
   @include element(bg) {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100%;

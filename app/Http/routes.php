@@ -25,11 +25,12 @@ Route::get('register', 'Auth\AuthController@getRegister');
 Route::post('register', 'Auth\AuthController@postRegister');
 
 // Dashboard
-Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'profile.setup']], function () {
     Route::get('/', 'DashboardController@index');
-    Route::get('setup', 'DashboardController@setup');
     Route::get('admin', 'DashboardController@admin');
 });
 
-// Profile
-Route::resource('profile', 'ProfileController');
+// Profiles
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('profile', 'ProfileController');
+});

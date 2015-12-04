@@ -26,7 +26,7 @@ class AddUserIdToProfileTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function($table)
+        Schema::table('profiles', function($table)
         {
             $table->dropColumn('user_id');
         });
