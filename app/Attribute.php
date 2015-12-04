@@ -11,7 +11,7 @@ class Attribute extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'content'];
+    protected $fillable = ['name', 'content', 'profile_id'];
 
     public function profile()
     {

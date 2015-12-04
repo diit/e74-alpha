@@ -1,5 +1,9 @@
 var Vue = require('vue');
-Vue.use(require('vue-resource'));
+var vueValidator = require('vue-validator');
+var vueResource = require('vue-resource');
+
+Vue.use(vueValidator);
+Vue.use(vueResource);
 
 new Vue({
   el: '#v-app',
@@ -18,7 +22,8 @@ new Vue({
       website: '',
       city: '',
       country: ''
-    }
+    },
+    errors: []
   },
 
   methods: {
@@ -29,24 +34,30 @@ new Vue({
       });
       this.newSkill.name = '';
       this.newSkill.content = '';
+      this.addSkill = false;
     },
     deleteSkill: function (index) {
       this.skills.splice(index, 1)
     },
     saveProfile: function () {
-      // save item (THE BELOW SHOULD WORK BUT LIB MAY HAVE BUG)
-      // this.$http.post('/profile', this.data, function(data, status, request) {
-      //       console.log(data);
-      // }).error(function (data, status, request) {
-      //       console.log(data);
-      // });
-      $.ajax({
-        method: "POST",
-        url: "/profile",
-        data: this.data,
-      }).done(function(data) {
-        console.log(data);
+      var fields = {
+        'skills': this.skills,
+        'profile': this.profile
+      }
+      var result = $.ajax({
+        method: 'POST',
+        url: '/profile',
+        data: fields,
+        dataType: 'json',
+        success: function(data) {
+          // Redirect
+        },
+        error: function(data) {
+          console.log(data.responseJSON);
+          return JSON.parse(data.responseJSON);
+        }
       });
+      this.errors.push(result);
     }
   }
 })

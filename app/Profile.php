@@ -11,7 +11,7 @@ class Profile extends Model
      *
      * @var array
      */
-    protected $fillable = ['pitch', 'position', 'gender', 'city', 'country', 'website'];
+    protected $fillable = ['pitch', 'position', 'gender', 'city', 'country', 'website', 'user_id'];
 
     public function user()
     {

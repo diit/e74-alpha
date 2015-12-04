@@ -16,6 +16,8 @@ class CreateAttributeTable extends Migration
           $table->increments('id');
           $table->string('name');
           $table->text('content');
+          $table->integer('profile_id')->unsigned();
+          $table->foreign('profile_id')->references('id')->on('profiles');
           $table->timestamps();
       });
     }
